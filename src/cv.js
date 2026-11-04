@@ -14,8 +14,9 @@ export const categories = [
   { id: "sound-art", label: "사운드 아트·전시" },
   { id: "performance", label: "공연 음악" },
   { id: "screen", label: "영상·광고" },
-  { id: "records", label: "음반·프로듀싱" },
-  { id: "live", label: "연주·편곡" },
+  { id: "composition", label: "프로듀싱·작곡·편곡" },
+  { id: "engineering", label: "믹싱·마스터링" },
+  { id: "live", label: "연주" },
   { id: "post", label: "포스트 프로덕션" },
   { id: "education", label: "강의·연구" },
 ];
@@ -37,7 +38,7 @@ const musicalMix = (id, year, title, format) => ({
   description: `공간소리 소속 Sound Engineer · 뮤지컬 실황 ${format} 믹스 참여`,
 });
 
-export const entries = [
+const originalEntries = [
   ...group("sound-art", [
     [
       "hexnut-fragments",
@@ -323,3 +324,44 @@ export const entries = [
     ["jam-music-academy", "2016–현재", "JAM Music Academy", "강사"],
   ]),
 ];
+
+
+// 역할이 함께 기록된 작업은 여러 분야에 속하지만 원본 항목은 한 건만 유지합니다.
+// 음반 작업과 기존 연주·편곡 작업의 크레딧을 기준으로 분류합니다.
+const roleCategories = {
+  composition: new Set([
+    "my-satan-book-ost", "yunaone-tidal-mind", "yunaone-green-heart",
+    "juha-wave", "enigmata-highway", "juha-seonju", "girlsonmood",
+    "collor-butterfly", "chae-suhyun-great-night", "eungyo-understand",
+    "no-tomorrow-no-regret", "myvatn", "myvatn-shake", "myvatn-bury",
+    "myvatn-like-you-lady", "myvatn-rain", "gangto-band", "becovered",
+    "eungyo-collaboration", "chae-suhyun-collaboration", "juha-collaboration",
+    "baek-space", "go-baek",
+  ]),
+  engineering: new Set([
+    "bearose-2026", "summer-night-lawn", "bearose-2025", "sogeumji-ep",
+    "cho-sukyung-swim", "joy-avenue-hymns", "juha-got-ya", "juha-wave",
+    "juha-avocado", "chae-suhyun-2020", "juha-seonju", "juha-fishbowl",
+    "juha-false-adult", "chae-suhyun-depression", "eungyo-understand",
+    "myvatn", "myvatn-shake", "myvatn-bury", "myvatn-like-you-lady",
+    "myvatn-rain", "becovered", "eungyo-collaboration",
+    "chae-suhyun-collaboration", "juha-collaboration", "joy-avenue-collaboration",
+  ]),
+  live: new Set([
+    "yunaone-tidal-mind", "no-tomorrow-no-regret", "gangto-band",
+    "just-j-min", "john-cameron-mitchell", "hedwig", "yoon-soho",
+  ]),
+};
+
+export const entries = originalEntries.map((entry) => {
+  const memberships = entry.category === "records" || entry.category === "live"
+    ? Object.entries(roleCategories)
+        .filter(([, ids]) => ids.has(entry.id))
+        .map(([category]) => category)
+    : [entry.category];
+  if (!memberships.length) throw new Error(`작업 분야 누락: ${entry.id}`);
+  return { ...entry, category: memberships[0], categories: memberships };
+}).sort((a, b) =>
+  categories.findIndex((item) => item.id === a.category)
+  - categories.findIndex((item) => item.id === b.category)
+);

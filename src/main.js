@@ -26,7 +26,7 @@ document.querySelector("#app").innerHTML = `
     <section class="archive-section section-wrap" id="archive" aria-labelledby="archive-title">
       <div class="section-heading"><div class="artist-heading"><p class="artist-studio">${escape(profile.studio)}</p><h1 id="archive-title">${escape(profile.name)} : DAWN</h1><p class="artist-role">사운드 아티스트 · 작곡가 · 프로듀서</p></div></div>
       <div class="archive-layout">
-        <aside class="archive-sidebar" aria-label="작업 분야"><p class="sidebar-label">DISCIPLINES</p><div class="category-list" role="group" aria-label="분야별 이력 필터"><button type="button" class="category-button active" data-category="all" aria-pressed="true"><span>전체 작업</span><span>${count(entries.length)}</span></button>${categories.map((category) => `<button type="button" class="category-button" data-category="${category.id}" aria-pressed="false"><span>${escape(category.label)}</span><span>${count(entries.filter((entry) => entry.category === category.id).length)}</span></button>`).join("")}</div></aside>
+        <aside class="archive-sidebar" aria-label="작업 분야"><p class="sidebar-label">DISCIPLINES</p><div class="category-list" role="group" aria-label="분야별 이력 필터"><button type="button" class="category-button active" data-category="all" aria-pressed="true"><span>전체 작업</span><span>${count(entries.length)}</span></button>${categories.map((category) => `<button type="button" class="category-button" data-category="${category.id}" aria-pressed="false"><span>${escape(category.label)}</span><span>${count(entries.filter((entry) => entry.categories.includes(category.id)).length)}</span></button>`).join("")}</div></aside>
         <div class="archive-main"><form class="search-form" role="search"><label for="archive-search" class="sr-only">작업명, 연도, 참여 역할 검색</label><span class="search-icon" aria-hidden="true"></span><input id="archive-search" type="search" placeholder="작업명, 연도, 참여 역할 검색" autocomplete="off"><button type="button" class="clear-search" hidden aria-label="검색어 지우기">×</button></form><div class="archive-results-top"><p id="result-status" role="status" aria-live="polite"></p><span>YEAR / PROJECT</span></div><div id="archive-results"></div><button id="load-more" class="load-more" type="button"></button></div>
       </div>
     </section>
@@ -49,11 +49,11 @@ function getMatches() {
     .filter(Boolean);
   return entries.filter((entry) => {
     const text =
-      `${entry.year} ${entry.title} ${entry.description} ${categoryName(entry.category)}`.toLocaleLowerCase(
+      `${entry.year} ${entry.title} ${entry.description} ${entry.categories.map(categoryName).join(" ")}`.toLocaleLowerCase(
         "ko",
       );
     return (
-      (activeCategory === "all" || activeCategory === entry.category) &&
+      (activeCategory === "all" || entry.categories.includes(activeCategory)) &&
       terms.every((term) => text.includes(term))
     );
   });
@@ -153,7 +153,7 @@ function downloadCV() {
   categories.forEach((category) => {
     lines.push("", `■ ${category.label}`, "");
     entries
-      .filter((entry) => entry.category === category.id)
+      .filter((entry) => entry.categories.includes(category.id))
       .forEach((entry) => {
         lines.push(`${entry.year} | ${entry.title}`, `  ${entry.description}`);
         if (safeUrl(entry.url)) lines.push(`  ${entry.url}`);
@@ -199,3 +199,4 @@ window.addEventListener("afterprint", () => {
   }
 });
 renderArchive();
+
