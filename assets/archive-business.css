@@ -600,3 +600,26 @@ p {
   line-height: 1.9;
   color: var(--muted);
 }
+
+.artist-contact {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+  font-size: 11px;
+  line-height: 1.9;
+  color: var(--muted);
+}
+.business-number { white-space: nowrap; }
+.instagram-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  transition: color 0.15s, background 0.15s;
+}
+.instagram-link:hover { color: var(--ink); background: #e7eadb; }
+@media print { .artist-contact { color: black; } .instagram-link { display: none; } }
