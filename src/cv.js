@@ -351,7 +351,6 @@ const roleCategories = {
     "chae-suhyun-collaboration", "juha-collaboration", "joy-avenue-collaboration",
   ]),
   live: new Set([
-    "no-tomorrow-no-regret", "gangto-band",
     "just-j-min", "john-cameron-mitchell", "hedwig", "yoon-soho",
   ]),
 };
