@@ -15,8 +15,8 @@ export const categories = [
   { id: "performance", label: "연극·뮤지컬 음악감독" },
   { id: "screen", label: "영상·광고" },
   { id: "composition", label: "프로듀싱·작곡·편곡" },
-  { id: "engineering", label: "믹싱·마스터링" },
   { id: "live", label: "연주" },
+  { id: "engineering", label: "믹싱·마스터링" },
   { id: "post", label: "포스트 프로덕션" },
   { id: "education", label: "강의·연구" },
 ];
