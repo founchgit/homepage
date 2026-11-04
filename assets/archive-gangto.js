@@ -201,8 +201,9 @@ const originalEntries = [
     [
       "no-tomorrow-no-regret",
       "2014",
-      "No Tomorrow, No Regret",
+      "강토밴드 — No Tomorrow, No Regret",
       "정규앨범 · 전체 수록곡 건반 연주, 편곡",
+      "https://www.youtube.com/playlist?list=OLAK5uy_keaWDDdnkzuqUoYfh55yUimiO1x2KhWvQ",
     ],
     [
       "myvatn-shake",
@@ -228,7 +229,7 @@ const originalEntries = [
     ["myvatn-rain", "2016", "Myvatn — Rain", "디지털 싱글 · 편곡, 믹스",
       "https://www.youtube.com/watch?v=HwoVsixFQU4",
     ],
-    ["gangto-band", "—", "강토밴드", "컨츄리 밴드 · 전곡 건반 연주, 편곡"],
+
     ["becovered", "—", "BECOVERED", "CCM 밴드 · 싱어, 편곡, 믹스"],
     [
       "chae-suhyun-collaboration",
@@ -344,7 +345,7 @@ const roleCategories = {
     "juha-wave", "enigmata-highway", "juha-seonju", "girlsonmood",
     "collor-butterfly", "chae-suhyun-great-night", "eungyo-understand",
     "no-tomorrow-no-regret", "myvatn-shake", "myvatn-bury",
-    "myvatn-like-you-lady", "myvatn-rain", "gangto-band", "becovered",
+    "myvatn-like-you-lady", "myvatn-rain", "becovered",
     "chae-suhyun-collaboration", "juha-collaboration",
     "baek-space", "go-baek",
   ]),
