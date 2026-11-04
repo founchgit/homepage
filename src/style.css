@@ -593,3 +593,10 @@ p {
     font-size: 12px;
   }
 }
+
+.artist-education {
+  margin-top: 20px;
+  font-size: 11px;
+  line-height: 1.9;
+  color: var(--muted);
+}
