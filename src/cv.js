@@ -136,7 +136,6 @@ const originalEntries = [
       "베스트셀러 작가 백은별 · 프로듀싱 및 작편곡",
       "https://youtu.be/YOPfdLOFGfk?si=QV6LHVr97n2F1yqV",
     ],
-    ["bearose-2026", "2026", "베어로즈 — EP 1st", "Mix & Mastering"],
     ["yunaone-tidal-mind", "2025", "유나원 — Tidal mind", "편곡 참여",
       "https://www.youtube.com/watch?v=BXhjhXSBG5Y",
     ],
@@ -149,7 +148,6 @@ const originalEntries = [
       "여름밤잔디",
       "경북음악창작소 제작지원 사업 · Mix & Mastering",
     ],
-    ["bearose-2025", "2025", "베어로즈 — EP 1st", "Mastering"],
     [
       "sogeumji-ep",
       "2023",
@@ -366,7 +364,7 @@ const roleCategories = {
     "baek-space", "go-baek",
   ]),
   engineering: new Set([
-    "bearose-2026", "summer-night-lawn", "bearose-2025", "sogeumji-ep",
+    "summer-night-lawn", "sogeumji-ep",
     "cho-sukyung-swim", "joy-avenue-hymns", "juha-got-ya", "juha-wave",
     "juha-avocado", "chae-suhyun-2020", "juha-seonju", "juha-fishbowl",
     "juha-false-adult", "chae-suhyun-depression", "eungyo-understand",
