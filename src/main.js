@@ -1,5 +1,5 @@
 import "./style.css";
-import { profile, categories, entries } from "./cv.js";
+import { profile, categories, entries, compareEntries } from "./cv.js";
 
 const escape = (text) =>
   String(text).replace(
@@ -57,9 +57,7 @@ function getMatches() {
       terms.every((term) => text.includes(term))
     );
   });
-  if (activeCategory === "all") return matches;
-  const latestYear = (entry) => Math.max(0, ...(entry.year.match(/\d{4}/g) || []).map(Number));
-  return matches.sort((a, b) => latestYear(b) - latestYear(a));
+  return matches.sort(compareEntries);
 }
 
 function renderArchive() {
@@ -74,16 +72,10 @@ function renderArchive() {
       .querySelector("#reset-search")
       .addEventListener("click", resetArchive);
   } else {
-    let previousCategory = "";
     results.innerHTML = visible
       .map((entry) => {
-        const categoryHeader =
-          activeCategory === "all" && previousCategory !== entry.category
-            ? `<p class="archive-category-heading">${escape(categoryName(entry.category))}</p>`
-            : "";
-        previousCategory = entry.category;
         const url = safeUrl(entry.url);
-        return `${categoryHeader}<article class="archive-entry"><span class="entry-year">${escape(entry.year)}</span><div class="entry-details"><h2>${escape(entry.title)}</h2><p>${escape(entry.description)}</p></div>${url ? `<a class="entry-link" href="${url}" target="_blank" rel="noopener noreferrer" aria-label="${escape(entry.title)} 관련 자료 (새 창)">↗</a>` : ""}</article>`;
+        return `<article class="archive-entry"><span class="entry-year">${escape(entry.year)}</span><div class="entry-details"><h2>${escape(entry.title)}</h2><p>${escape(entry.description)}</p></div>${url ? `<a class="entry-link" href="${url}" target="_blank" rel="noopener noreferrer" aria-label="${escape(entry.title)} 관련 자료 (새 창)">↗</a>` : ""}</article>`;
       })
       .join("");
   }

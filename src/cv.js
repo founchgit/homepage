@@ -378,6 +378,15 @@ const roleCategories = {
   ]),
 };
 
+// 같은 연도 안에서 숫자가 작을수록 먼저 표시됩니다. 미지정 작업은 기존 순서입니다.
+export const entryOrder = {};
+
+export const latestYear = (entry) =>
+  Math.max(0, ...(entry.year.match(/\d{4}/g) || []).map(Number));
+
+export const compareEntries = (a, b) =>
+  latestYear(b) - latestYear(a) || a.sortOrder - b.sortOrder;
+
 export const entries = originalEntries.map((entry) => {
   const memberships = entry.category === "records" || entry.category === "live"
     ? Object.entries(roleCategories)
@@ -389,4 +398,7 @@ export const entries = originalEntries.map((entry) => {
 }).sort((a, b) =>
   categories.findIndex((item) => item.id === a.category)
   - categories.findIndex((item) => item.id === b.category)
-);
+).map((entry, index) => ({
+  ...entry,
+  sortOrder: entryOrder[entry.id] ?? index * 10,
+})).sort(compareEntries);
