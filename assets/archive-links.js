@@ -73,7 +73,7 @@ const originalEntries = [
       "2024",
       "버닝업",
       "창작 뮤지컬 · 극단 지우 · 음악감독, 작편곡 및 사운드 디자인",
-      "https://www.rouvket.com/49",
+
     ],
     [
       "yeonjeok",
