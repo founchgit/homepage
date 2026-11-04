@@ -173,7 +173,7 @@ const originalEntries = [
       "2020",
       "채수현 — 태풍이 지나가고 / 환상의 빛",
       "싱글 앨범 · 2020.04.24 발매 · 믹싱 & 마스터링",
-      "https://music.bugs.co.kr/album/20320850",
+      "https://www.youtube.com/playlist?list=OLAK5uy_l-Z-NYtTxEcx4rqvqfAWz2QZrTt9tYJmU",
     ],
     ["juha-seonju", "2020", "주하 — 선주", "디지털 싱글앨범 · 편곡, Mix"],
     ["juha-fishbowl", "2019", "주하 — 어항", "디지털 싱글앨범 · Mix"],
