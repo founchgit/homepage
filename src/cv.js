@@ -137,7 +137,7 @@ const originalEntries = [
       "https://youtu.be/YOPfdLOFGfk?si=QV6LHVr97n2F1yqV",
     ],
     ["bearose-2026", "2026", "베어로즈 — EP 1st", "Mix & Mastering"],
-    ["yunaone-tidal-mind", "2025", "유나원 — Tidal mind", "편곡, 연주 참여"],
+    ["yunaone-tidal-mind", "2025", "유나원 — Tidal mind", "편곡 참여"],
     ["yunaone-green-heart", "2025", "유나원 — 초록의 마음으로", "편곡 참여"],
     [
       "summer-night-lawn",
@@ -351,7 +351,7 @@ const roleCategories = {
     "chae-suhyun-collaboration", "juha-collaboration", "joy-avenue-collaboration",
   ]),
   live: new Set([
-    "yunaone-tidal-mind", "no-tomorrow-no-regret", "gangto-band",
+    "no-tomorrow-no-regret", "gangto-band",
     "just-j-min", "john-cameron-mitchell", "hedwig", "yoon-soho",
   ]),
 };
