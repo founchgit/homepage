@@ -12,7 +12,7 @@ export const profile = {
 
 export const categories = [
   { id: "sound-art", label: "사운드 아트·전시" },
-  { id: "performance", label: "공연 음악" },
+  { id: "performance", label: "연극·뮤지컬 음악감독" },
   { id: "screen", label: "영상·광고" },
   { id: "composition", label: "프로듀싱·작곡·편곡" },
   { id: "engineering", label: "믹싱·마스터링" },
