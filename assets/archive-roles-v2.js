@@ -413,7 +413,7 @@ function getMatches() {
     .toLocaleLowerCase("ko")
     .split(/\s+/)
     .filter(Boolean);
-  return entries.filter((entry) => {
+  const matches = entries.filter((entry) => {
     const text =
       `${entry.year} ${entry.title} ${entry.description} ${entry.categories.map(categoryName).join(" ")}`.toLocaleLowerCase(
         "ko",
@@ -423,6 +423,9 @@ function getMatches() {
       terms.every((term) => text.includes(term))
     );
   });
+  if (activeCategory === "all") return matches;
+  const latestYear = (entry) => Math.max(0, ...(entry.year.match(/\d{4}/g) || []).map(Number));
+  return matches.sort((a, b) => latestYear(b) - latestYear(a));
 }
 
 function renderArchive() {
