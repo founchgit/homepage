@@ -67,6 +67,7 @@ const originalEntries = [
       "2026",
       "세잎클로버",
       "창작 뮤지컬 · 원작 소설 『시한부』 · 극단 지우 · 음악감독",
+      "https://jiwooprojects.com/sihanbu",
     ],
     [
       "burning-up",
