@@ -231,19 +231,7 @@ const originalEntries = [
     ],
 
     ["becovered", "—", "BECOVERED", "CCM 밴드 · 싱어, 편곡, 믹스"],
-    [
-      "chae-suhyun-collaboration",
-      "—",
-      "채수현",
-      "유재하 음악경연대회 출신 싱어송라이터 · 편곡, 믹스",
-    ],
-    [
-      "juha-collaboration",
-      "—",
-      "주하",
-      "싱어송라이터 · 전 앨범 편곡 또는 믹스",
-    ],
-    ["joy-avenue-collaboration", "—", "조이애비뉴", "유튜버 · 앨범 믹스"],
+            ["joy-avenue-collaboration", "—", "조이애비뉴", "유튜버 · 앨범 믹스"],
   ]),
   ...group("live", [
     [
@@ -346,7 +334,7 @@ const roleCategories = {
     "collor-butterfly", "chae-suhyun-great-night", "eungyo-understand",
     "no-tomorrow-no-regret", "myvatn-shake", "myvatn-bury",
     "myvatn-like-you-lady", "myvatn-rain", "becovered",
-    "chae-suhyun-collaboration", "juha-collaboration",
+    "juha-collaboration",
     "baek-space", "go-baek",
   ]),
   engineering: new Set([
@@ -356,7 +344,7 @@ const roleCategories = {
     "juha-false-adult", "chae-suhyun-depression", "eungyo-understand",
     "myvatn-shake", "myvatn-bury", "myvatn-like-you-lady",
     "myvatn-rain", "becovered", "eungyo-collaboration",
-    "chae-suhyun-collaboration", "juha-collaboration", "joy-avenue-collaboration",
+    "joy-avenue-collaboration",
   ]),
   live: new Set([
     "paik-not-a-stain",
