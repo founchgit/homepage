@@ -623,3 +623,44 @@ p {
 }
 .instagram-link:hover { color: var(--ink); background: #e7eadb; }
 @media print { .artist-contact { color: black; } .instagram-link { display: none; } }
+
+.section-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  align-items: center;
+}
+
+.featured { width: 100%; max-width: 540px; justify-self: end; }
+.featured-media { aspect-ratio: 2 / 1; overflow: hidden; background: #242820; }
+.featured-video { position: relative; display: block; height: 100%; animation: featured-fade 650ms ease; }
+.featured-video:focus-visible { outline: 2px solid white; outline-offset: -4px; }
+.featured-video img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.featured-play {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #000b;
+  color: white;
+}
+.featured-controls, .featured-buttons { display: flex; align-items: center; gap: 8px; }
+.featured-controls { justify-content: space-between; margin-top: 6px; font-size: 0.8rem; }
+.featured-count { margin-inline-start: 6px; }
+.featured-buttons button { min-height: 32px; padding: 2px 8px; cursor: pointer; }
+@keyframes featured-fade { from { opacity: 0.25; } to { opacity: 1; } }
+
+@media (max-width: 760px) {
+  .section-heading { grid-template-columns: minmax(0, 1fr); }
+  .featured { justify-self: start; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .featured-video { animation: none; }
+}
+@media print {
+  .section-heading { display: block; }
+  .featured { display: none; }
+}
