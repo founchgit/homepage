@@ -329,8 +329,8 @@ const originalEntries = [
     ["mio-fratello-2020", "2020", "미오 프라텔로", "OST"],
   ].map((row) => musicalMix(...row)),
   ...group("engineering", [
-    ["bearrose-ep-2025", "2025", "베어로즈 — 1st EP", "마스터링"],
-    ["bearrose-ep-2026", "2026", "베어로즈 — 2nd EP", "믹싱, 마스터링"],
+    ["bearrose-ep-2025", "2025", "베어로즈 — 1st EP", "Mastering"],
+    ["bearrose-ep-2026", "2026", "베어로즈 — 2nd EP", "Mix & Mastering", "https://www.youtube.com/watch?v=VpSu7Pdi6bY&list=OLAK5uy_njFq4rpHX_ufQmfdsYAgUZiIJlvrlXOOc"],
   ]),
   ...group("education", [
     [
