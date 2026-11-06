@@ -265,7 +265,7 @@ const originalEntries = [
       "paik-not-a-stain",
       "2026",
       "백승환 단독공연 — not a stain...",
-      "2026.07.31 · 고라니 특공대 · 연주 참여",
+      "고라니 특공대 · 연주 참여",
       "https://search.naver.com/search.naver?where=nexearch&pkid=269&os=41592357&query=%EB%B0%B1%EC%8A%B9%ED%99%98%20%EB%8B%A8%EB%8F%85%EA%B3%B5%EC%97%B0%20not%20a%20stain",
     ],
     [
