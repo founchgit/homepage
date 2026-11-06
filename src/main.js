@@ -55,8 +55,9 @@ const featuredWorks = [
     title: id === "ZdZdz524-B0" ? "휴머노이드 로봇 빌리 · 광고음악" : "",
   })),
   {
-    url: "https://jiwooprojects.com/sihanbu",
-    image: "https://cdn.imweb.me/thumbnail/20260702/270759605a8ec.jpg",
+    url: "https://www.youtube.com/watch?v=RvGOFLYTYX0",
+    image: "https://i.ytimg.com/vi/RvGOFLYTYX0/hqdefault.jpg",
+    video: true,
     title: "세잎클로버 · 음악감독",
   },
 ];
