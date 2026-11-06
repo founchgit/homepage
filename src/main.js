@@ -28,7 +28,7 @@ document.querySelector("#app").innerHTML = `
         <section class="featured" aria-label="대표작">
           <div class="featured-media"></div>
           <div class="featured-controls">
-            <span>대표작 <span class="featured-count"></span></span>
+            <span><span class="featured-count"></span></span>
             <div class="featured-buttons">
               <button type="button" data-step="-1" aria-label="이전 대표작">‹</button>
               <button type="button" class="featured-toggle">일시정지</button>
