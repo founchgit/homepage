@@ -455,7 +455,19 @@ document.querySelector("#app").innerHTML = `
 `;
 
 
-const featuredVideos = ["S72bNOe3V0c", "OOTew75xRYU", "mriKZW-qpb8"];
+const featuredWorks = [
+  ...["S72bNOe3V0c", "OOTew75xRYU", "mriKZW-qpb8", "ZdZdz524-B0"].map((id) => ({
+    url: `https://www.youtube.com/watch?v=${id}`,
+    image: `https://i.ytimg.com/vi/${id}/hqdefault.jpg`,
+    video: true,
+    title: id === "ZdZdz524-B0" ? "휴머노이드 로봇 빌리 · 광고음악" : "",
+  })),
+  {
+    url: "https://jiwooprojects.com/sihanbu",
+    image: "https://cdn.imweb.me/thumbnail/20260702/270759605a8ec.jpg",
+    title: "세잎클로버 · 음악감독",
+  },
+];
 const featured = document.querySelector(".featured");
 const featuredMedia = featured.querySelector(".featured-media");
 const featuredCount = featured.querySelector(".featured-count");
@@ -466,16 +478,16 @@ let featuredPaused = motionPreference.matches;
 let featuredTimer;
 
 function showFeatured(step = 0) {
-  featuredIndex = (featuredIndex + step + featuredVideos.length) % featuredVideos.length;
-  const id = featuredVideos[featuredIndex];
+  featuredIndex = (featuredIndex + step + featuredWorks.length) % featuredWorks.length;
+  const work = featuredWorks[featuredIndex];
   featuredMedia.innerHTML = `
-    <a class="featured-video" href="https://www.youtube.com/watch?v=${id}"
+    <a class="featured-video" href="${escape(work.url)}"
       target="_blank" rel="noopener noreferrer"
-      aria-label="대표작 ${featuredIndex + 1} 유튜브에서 재생 (새 창)">
-      <img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="">
-      <span class="featured-play" aria-hidden="true">▶</span>
+      aria-label="${escape(work.title || `대표작 ${featuredIndex + 1}`)} ${work.video ? "유튜브에서 재생" : "공연 페이지 보기"} (새 창)">
+      <img src="${escape(work.image)}" alt="${work.video ? "" : "뮤지컬 세잎클로버 공식 포스터"}"${work.video ? "" : ' style="object-fit: contain"'}>
+      ${work.video ? '<span class="featured-play" aria-hidden="true">▶</span>' : ""}
     </a>`;
-  featuredCount.textContent = `${featuredIndex + 1} / ${featuredVideos.length}`;
+  featuredCount.textContent = `${featuredIndex + 1} / ${featuredWorks.length}`;
 }
 
 function scheduleFeatured() {
