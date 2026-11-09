@@ -18,7 +18,7 @@ export const categories = [
   { id: "live", label: "연주" },
   { id: "engineering", label: "믹싱·마스터링" },
   { id: "post", label: "포스트 프로덕션" },
-  { id: "education", label: "강의·연구" },
+  { id: "education", label: "강의·연구·수상" },
 ];
 
 const group = (category, rows) =>
@@ -333,6 +333,12 @@ const originalEntries = [
     ["bearrose-ep-2026", "2026", "베어로즈 — 2nd EP", "Mix & Mastering", "https://www.youtube.com/watch?v=VpSu7Pdi6bY&list=OLAK5uy_njFq4rpHX_ufQmfdsYAgUZiIJlvrlXOOc"],
   ]),
   ...group("education", [
+    [
+      "hakchon-kim-kwang-seok-2015",
+      "2015",
+      "김광석 노래부르기 2015",
+      "학전 · 기타상 수상",
+    ],
     [
       "daelim-mentoring",
       "2026",
